@@ -38,7 +38,7 @@ class M_Card extends M_MSQL
 	 */
 	public function ById($card_id){
 		
-		return M_MSQL::Instance()->SelectRow("SELECT * FROM `cards` WHERE `card_id` = $card_id");
+		return M_MSQL::Instance()->SelectRow("SELECT * FROM `card` WHERE `card_id` = $card_id");
 	}
 
 
@@ -50,7 +50,7 @@ class M_Card extends M_MSQL
 
         $time = time();
 
-        return M_MSQL::Instance()->Insert("INSERT INTO `cards` SET `card_question` = '$card_question', `card_answer` = '$card_answer', `card_сreated_date` = $time");
+        return M_MSQL::Instance()->Insert("INSERT INTO `card` SET `card_question` = '$card_question', `card_answer` = '$card_answer', `card_сreated_date` = $time");
     }
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 31 2018 г., 19:05
+-- Время создания: Авг 31 2018 г., 19:39
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `cards`
+-- Структура таблицы `card`
 --
 
-CREATE TABLE `cards` (
+CREATE TABLE `card` (
   `card_id` int(16) NOT NULL,
   `card_question` text NOT NULL,
   `card_answer` text NOT NULL,
@@ -36,10 +36,10 @@ CREATE TABLE `cards` (
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 
 --
--- Дамп данных таблицы `cards`
+-- Дамп данных таблицы `card`
 --
 
-INSERT INTO `cards` (`card_id`, `card_question`, `card_answer`, `card_сreated_date`) VALUES
+INSERT INTO `card` (`card_id`, `card_question`, `card_answer`, `card_сreated_date`) VALUES
 (1, '1-ая карточка про PHP', 'Ответ на первую карточку', 1535713386),
 (2, '2-ая карточка про HTML', 'Ответ на вторую карточку', 1535713426),
 (3, '3-яя карточка про JavaScript', 'Ответ на третью карточку', 1535713453),
@@ -53,7 +53,31 @@ INSERT INTO `cards` (`card_id`, `card_question`, `card_answer`, `card_сreated_d
 (11, 'Big', 'Большой', 1535713649),
 (12, '11111', '22222', 1535713727),
 (13, 'Первая сторона', 'Вторая сторона', 1535731490),
-(14, 'Первая сторона', 'Вторая сторона', 1535731509);
+(14, 'Первая сторона', 'Вторая сторона', 1535731509),
+(15, 'Первая сторона', 'Вторая сторона', 1535733490);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `deck`
+--
+
+CREATE TABLE `deck` (
+  `deck_id` int(12) NOT NULL,
+  `deck_title` varchar(255) NOT NULL,
+  `user_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `deck`
+--
+
+INSERT INTO `deck` (`deck_id`, `deck_title`, `user_id`) VALUES
+(1, 'Веб-мастерская', 1),
+(2, 'Английский', 1),
+(3, 'Одна карточка', 1),
+(4, 'Без карточек', 1),
+(5, 'Новая', 1);
 
 -- --------------------------------------------------------
 
@@ -85,38 +109,16 @@ INSERT INTO `deckcard` (`deckcard_id`, `deck_id`, `card_id`) VALUES
 (11, 2, 11),
 (12, 3, 12),
 (13, 5, 13),
-(14, 5, 14);
+(14, 5, 14),
+(15, 5, 15);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `decks`
+-- Структура таблицы `level`
 --
 
-CREATE TABLE `decks` (
-  `deck_id` int(12) NOT NULL,
-  `deck_title` varchar(255) NOT NULL,
-  `user_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `decks`
---
-
-INSERT INTO `decks` (`deck_id`, `deck_title`, `user_id`) VALUES
-(1, 'Веб-мастерская', 1),
-(2, 'Английский', 1),
-(3, 'Одна карточка', 1),
-(4, 'Без карточек', 1),
-(5, 'Новая', 1);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `levels`
---
-
-CREATE TABLE `levels` (
+CREATE TABLE `level` (
   `level_id` int(3) NOT NULL,
   `level_pause` int(12) NOT NULL,
   `level_next` int(3) NOT NULL,
@@ -124,10 +126,10 @@ CREATE TABLE `levels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `levels`
+-- Дамп данных таблицы `level`
 --
 
-INSERT INTO `levels` (`level_id`, `level_pause`, `level_next`, `level_crash`) VALUES
+INSERT INTO `level` (`level_id`, `level_pause`, `level_next`, `level_crash`) VALUES
 (1, 0, 2, 1),
 (2, 20, 3, 1),
 (3, 120, 4, 1),
@@ -150,30 +152,30 @@ INSERT INTO `levels` (`level_id`, `level_pause`, `level_next`, `level_crash`) VA
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `marks`
+-- Структура таблицы `mark`
 --
 
-CREATE TABLE `marks` (
+CREATE TABLE `mark` (
   `mark_id` int(20) NOT NULL,
   `card_id` int(16) NOT NULL,
   `user_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `marks`
+-- Дамп данных таблицы `mark`
 --
 
-INSERT INTO `marks` (`mark_id`, `card_id`, `user_id`) VALUES
+INSERT INTO `mark` (`mark_id`, `card_id`, `user_id`) VALUES
 (1, 1, 1),
 (2, 4, 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `responses`
+-- Структура таблицы `response`
 --
 
-CREATE TABLE `responses` (
+CREATE TABLE `response` (
   `response_id` int(24) NOT NULL,
   `card_id` int(12) NOT NULL,
   `response_result` tinyint(1) NOT NULL,
@@ -185,19 +187,19 @@ CREATE TABLE `responses` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- Структура таблицы `user`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `user_id` int(10) NOT NULL,
   `user_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `users`
+-- Дамп данных таблицы `user`
 --
 
-INSERT INTO `users` (`user_id`, `user_name`) VALUES
+INSERT INTO `user` (`user_id`, `user_name`) VALUES
 (1, 'Sergey'),
 (2, 'Admin');
 
@@ -206,10 +208,16 @@ INSERT INTO `users` (`user_id`, `user_name`) VALUES
 --
 
 --
--- Индексы таблицы `cards`
+-- Индексы таблицы `card`
 --
-ALTER TABLE `cards`
+ALTER TABLE `card`
   ADD PRIMARY KEY (`card_id`);
+
+--
+-- Индексы таблицы `deck`
+--
+ALTER TABLE `deck`
+  ADD PRIMARY KEY (`deck_id`);
 
 --
 -- Индексы таблицы `deckcard`
@@ -218,33 +226,27 @@ ALTER TABLE `deckcard`
   ADD PRIMARY KEY (`deckcard_id`);
 
 --
--- Индексы таблицы `decks`
+-- Индексы таблицы `level`
 --
-ALTER TABLE `decks`
-  ADD PRIMARY KEY (`deck_id`);
-
---
--- Индексы таблицы `levels`
---
-ALTER TABLE `levels`
+ALTER TABLE `level`
   ADD PRIMARY KEY (`level_id`);
 
 --
--- Индексы таблицы `marks`
+-- Индексы таблицы `mark`
 --
-ALTER TABLE `marks`
+ALTER TABLE `mark`
   ADD PRIMARY KEY (`mark_id`);
 
 --
--- Индексы таблицы `responses`
+-- Индексы таблицы `response`
 --
-ALTER TABLE `responses`
+ALTER TABLE `response`
   ADD PRIMARY KEY (`response_id`);
 
 --
--- Индексы таблицы `users`
+-- Индексы таблицы `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -252,45 +254,45 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT для таблицы `cards`
+-- AUTO_INCREMENT для таблицы `card`
 --
-ALTER TABLE `cards`
-  MODIFY `card_id` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `card`
+  MODIFY `card_id` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT для таблицы `deck`
+--
+ALTER TABLE `deck`
+  MODIFY `deck_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `deckcard`
 --
 ALTER TABLE `deckcard`
-  MODIFY `deckcard_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `deckcard_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT для таблицы `decks`
+-- AUTO_INCREMENT для таблицы `level`
 --
-ALTER TABLE `decks`
-  MODIFY `deck_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT для таблицы `levels`
---
-ALTER TABLE `levels`
+ALTER TABLE `level`
   MODIFY `level_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
--- AUTO_INCREMENT для таблицы `marks`
+-- AUTO_INCREMENT для таблицы `mark`
 --
-ALTER TABLE `marks`
+ALTER TABLE `mark`
   MODIFY `mark_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT для таблицы `responses`
+-- AUTO_INCREMENT для таблицы `response`
 --
-ALTER TABLE `responses`
+ALTER TABLE `response`
   MODIFY `response_id` int(24) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `users`
+-- AUTO_INCREMENT для таблицы `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 

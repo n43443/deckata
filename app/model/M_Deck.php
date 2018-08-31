@@ -38,7 +38,7 @@ class M_Deck
 	 */
 	public function ByUserId($user_id){
 		
-		return M_MSQL::Instance()->SelectRows("SELECT * FROM `decks` WHERE `user_id` = '$user_id'");
+		return M_MSQL::Instance()->SelectRows("SELECT * FROM `deck` WHERE `user_id` = '$user_id'");
 	}
 
 
@@ -46,7 +46,7 @@ class M_Deck
      * Создать новую колоду
      */
     public function add($deck_title, $user_id){
-        return M_MSQL::Instance()->Insert("INSERT INTO `decks` set `deck_title` = '$deck_title', `user_id` = '$user_id'");
+        return M_MSQL::Instance()->Insert("INSERT INTO `deck` set `deck_title` = '$deck_title', `user_id` = '$user_id'");
     }
 
 }

@@ -38,14 +38,14 @@ class M_Mark
 	 */
 	public function All($user_id){
 		
-		return M_MSQL::Instance()->SelectRows("SELECT * FROM `marks` WHERE `user_id` = '$user_id'");
+		return M_MSQL::Instance()->SelectRows("SELECT * FROM `mark` WHERE `user_id` = '$user_id'");
 	}
 
 
 
     public function Add($card_id, $user_id){
 
-        M_MSQL::Instance()->Insert("INSERT INTO `marks` SET `card_id` = '$card_id', `user_id` = '$user_id'");
+        M_MSQL::Instance()->Insert("INSERT INTO `mark` SET `card_id` = '$card_id', `user_id` = '$user_id'");
     }
 
 }
