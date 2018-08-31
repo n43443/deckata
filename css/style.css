@@ -1,0 +1,272 @@
+a{
+	text-decoration: none;
+}
+
+h1{	
+    font-size: 10vw;
+    padding: 8px;
+    margin: 0px;
+}
+
+h2{	
+    font-size: 8vw;
+    padding: 6px;
+    margin: 0px;
+}
+
+h3{	
+    font-size: 6vw;
+    padding: 4px;
+    margin: 0px;
+}
+
+h4{	
+    font-size: 5vw;
+    padding: 3px;
+    margin: 0px;
+}
+
+h5{	
+    font-size: 4vw;
+    padding: 2px;
+    margin: 0px;
+}
+
+h6{	
+    font-size: 3vw;
+    padding: 1px;
+    margin: 0px;
+}
+
+p{
+	font-family: Tahoma, Verdana;
+    font-size: 3.3vw;
+    padding: 3px 0px 16px 0px;
+    margin: 0px;
+}
+
+
+/*
+* layouts
+*/
+
+.index_box{
+	width: 100%;
+	text-align: center;
+	margin: 25px 0px 0px 0px;
+	padding: 0px;
+}
+
+.menu {
+	width: 100%;
+	background-color: #EEE;
+	font-family: Arial, Verdana;
+    padding: 4px 0px 4px 0px;
+    margin: 8px 0px 0px 0px;
+    font-size: 2.8vw;
+	text-align: center;
+	border-top:1px solid #9EC1D4;
+	border-bottom:1px solid #9EC1D4;
+	text-decoration: none;
+}
+
+textarea{
+	font-family: Tahoma, Verdana;
+    font-size: 3.3vw;
+	margin: 2px 0px 2px 0px;
+    padding: 0px;
+}
+
+.input_submit{
+	font-family: Tahoma, Verdana;
+    font-size: 3.8vw;
+	margin: 0px;
+    padding: 2px;
+}
+
+.input_status{
+    font-family: Tahoma, Verdana;
+    font-size: 3.3vw;
+    margin: 2px 0px 2px 0px;
+    padding: 0px;
+}
+
+
+/*
+* v_questions
+*/
+
+.question {
+	font-family: Tahoma, Verdana;
+    font-size: 3.5vw;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+    min-height:100%;
+}
+
+
+/*
+* v_buttons_answers
+*/
+
+.buttons_answers{
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-top: 24px;
+    margin-bottom: 12px;
+	width: 100%;
+}
+
+.button_answer {
+	width:100%;
+	font-family: Tahoma, Verdana;
+    padding: 8px 4px 8px 4px;
+    margin: 2px 0px 2px 0px;
+	font-size: 3.5vw;
+	text-align: left;
+}
+
+
+/*
+* v_message
+*/
+
+.message_result_true{
+	font-family: Arial;
+    font-size: 12vw;
+	color: black;
+    padding: 0px;
+    margin: 160px 0px 4px 0px;
+	text-align: center;
+}
+
+.message_result_false{
+	font-family: Arial;
+    font-size: 12vw;
+	color: red;
+    padding: 0px;
+    margin: 160px 0px 4px 0px;
+	text-align: center;
+}
+
+
+
+.message_delete_true{
+	font-family: Arial;
+    font-size: 12vw;
+	color: black;
+    padding: 0px;
+    margin: 160px 0px 4px 0px;
+	text-align: center;
+}
+
+.message_delete_false{
+	font-family: Arial;
+    font-size: 12vw;
+	color: red;
+    padding: 0px;
+    margin: 160px 0px 4px 0px;
+	text-align: center;
+}
+
+
+.message_mark_delete_true{
+	font-family: Arial;
+    font-size: 12vw;
+	color: black;
+    padding: 0px;
+    margin: 160px 0px 4px 0px;
+	text-align: center;
+}
+
+.message_mark_delete_false{
+	font-family: Arial;
+    font-size: 12vw;
+	color: red;
+    padding: 0px;
+    margin: 160px 0px 4px 0px;
+	text-align: center;
+}
+
+
+
+
+.message_mark_add_true{
+	font-family: Arial;
+    font-size: 12vw;
+	color: black;
+    padding: 0px;
+    margin: 160px 0px 4px 0px;
+	text-align: center;
+}
+
+.message_mark_add_false{
+	font-family: Arial;
+    font-size: 12vw;
+	color: red;
+    padding: 0px;
+    margin: 160px 0px 4px 0px;
+	text-align: center;
+}
+
+
+
+.imgpack{
+    margin: 3vw 0vw 3vw 0vw;
+    padding: 0px;
+}
+
+.imgpack p{
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+    font-family: Tahoma, Verdana;
+    font-size: 3vw;
+}
+
+.imgpack img{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+
+
+
+
+.codepack{
+    border: #777 1px solid;
+    margin: 1vw 0vw 1vw 0vw;
+    padding: 0vw 0vw 0.5vw 0vw;
+    width: 100%;
+}
+
+.codepack p{
+    background-color: #999;
+    margin: 0px;
+    padding: 0px;
+    font-family: Tahoma, Verdana;
+    font-size: 3vw;
+    width: 100%;
+}
+
+.codepack code{
+    font-family:  Verdana, Tahoma;
+    font-size: 3.3vw;
+    margin: 0px;
+    padding: 0px ;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
