@@ -21,18 +21,19 @@ class C_Response extends Base
         $response = M_Response::Instance()->ByCardId($_POST['card_id'], '1');
 
 
-        if($response == FALSE || $response['response_result'] == 0 ) {
 
-            $level_next = 2;
-            $level_crash = 1;
+        if($response == FALSE) {
 
-        }else{
+            $response['level_id'] = '1';
+
+        }
 
 
-            $level_row = M_Level::Instance()->ByLevel($response[level_id]);
+            $level_row = M_Level::Instance()->ByLevel($response['level_id']);
 
 
             $level_next = $level_row['level_next'];
+
 
             if($level_next == 0){
 
@@ -51,7 +52,7 @@ class C_Response extends Base
 
 
 
-        }
+
 
 
 
