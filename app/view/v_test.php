@@ -12,13 +12,15 @@
 <div class="answer"><?=$card['card_answer']?></div>
 
 <div class="buttons_answers">
-    <form action="/response" method="post">
+    <form action="/?page=response" method="post">
 
-        <button class="button_answer" type="submit" name="response" value="bad">
+        <input type="hidden" name="card_id" value="<?=$card['card_id']?>">
+
+        <button class="button_answer" type="submit" name="response_result" value="bad">
             ПЛОХО
         </button>
 		
-		<button class="button_answer" type="submit" name="response" value="good">
+		<button class="button_answer" type="submit" name="response_result" value="good">
             ХОРОШО
         </button>
 

@@ -33,7 +33,9 @@ class M_Level
     }
 
 	
-
+    public function ByLevel($level_id){
+        return M_MSQL::Instance()->SelectRow("SELECT * FROM `level` WHERE `level_id` = '$level_id'");
+    }
 
 
 

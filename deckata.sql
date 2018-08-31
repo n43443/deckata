@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 31 2018 г., 19:39
+-- Время создания: Авг 31 2018 г., 23:55
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.2.0
 
@@ -184,6 +184,15 @@ CREATE TABLE `response` (
   `user_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 
+--
+-- Дамп данных таблицы `response`
+--
+
+INSERT INTO `response` (`response_id`, `card_id`, `response_result`, `response_date`, `level_id`, `user_id`) VALUES
+(1, 4, 1, 10000, 10, 1),
+(2, 5, 1, 10000, 5, 1),
+(3, 6, 0, 1000, 3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -287,7 +296,7 @@ ALTER TABLE `mark`
 -- AUTO_INCREMENT для таблицы `response`
 --
 ALTER TABLE `response`
-  MODIFY `response_id` int(24) NOT NULL AUTO_INCREMENT;
+  MODIFY `response_id` int(24) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
