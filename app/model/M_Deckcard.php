@@ -46,11 +46,13 @@ class M_Deckcard
 
 
     public function Remove($card_id){
+
         return M_MSQL::Instance()->Delete("DELETE FROM `deckcard` WHERE `card_id` = '$card_id'");
     }
 
 
-    public function AllDefects($user_id){
-        return M_MSQL::Instance()->SelectRows("SELECT * FROM `deckcard` WHERE `user_id` = $user_id, `deskcard_mark` = '1'");
+    public function ByUserId($user_id){
+
+        return M_MSQL::Instance()->SelectRows("SELECT * FROM `deckcard` WHERE `user_id` = $user_id");
     }
 }

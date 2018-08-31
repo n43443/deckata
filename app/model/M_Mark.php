@@ -48,4 +48,10 @@ class M_Mark
         M_MSQL::Instance()->Insert("INSERT INTO `mark` SET `card_id` = '$card_id', `user_id` = '$user_id'");
     }
 
+
+    public function Remove($card_id, $user_id){
+
+        M_MSQL::Instance()->Delete("DELETE FROM `mark` WHERE `card_id` = '$card_id' && `user_id` = '$user_id'");
+    }
+
 }

@@ -54,4 +54,9 @@ class M_Card extends M_MSQL
     }
 
 
+    public function All(){
+
+    }
+
+
 }

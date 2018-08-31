@@ -14,26 +14,33 @@ class C_Card extends Base
 
         parent::OnInput();
 
-
         if(!empty($_POST['remove_card_id'])){
+
         	M_Deckcard::Instance()->Remove($_POST['remove_card_id']);
 
-        	die('Карточка удалена');
+            header("Location: /?page=card&deck_id=$_GET[deck_id]");
         }
 
 		
 		$deckcards_by_deck_id = M_Deckcard::Instance()->ByDeck($_GET['deck_id']);
 
 
-		foreach($deckcards_by_deck_id as $deckcard_by_deck_id){
+        if($deckcards_by_deck_id != FALSE) {
 
-			$this->cards[] = M_Card::Instance()->ById($deckcard_by_deck_id['card_id']);
-		}
+            foreach ($deckcards_by_deck_id as $deckcard_by_deck_id) {
+
+                $this->cards[] = M_Card::Instance()->ById($deckcard_by_deck_id['card_id']);
+            }
+
+        } else {
+
+            $this->cards_null = TRUE;
+        }
     }
 
     public function OnOutput()
     {
-        $page = $this->Template('v_card.php', ['cards' => $this->cards]);
+        $page = $this->Template('v_card.php', ['cards' => $this->cards,'cards_null' => $this->cards_null]);
 		
 		echo $page;
     }

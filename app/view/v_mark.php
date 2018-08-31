@@ -9,36 +9,53 @@
 <body>
 
 <div class='menu'>
-	<a href="<?=URL_SITE?>/">ГЛАВНАЯ</a> |
-	<a href="<?=URL_SITE?>/add/">ДОБАВИТЬ ВОПРОС</a>
+	<a href="/">ГЛАВНАЯ</a> |
+    <a href="/?page=addcard">ДОБАВИТЬ ВОПРОС</a>
 </div>
 
 <h5> Все отмеченные карточки </h5> <hr />
 
 
-<?php foreach($cards as $card): ?>
+<?if($cards_null == FALSE):?>
+
+    <?php foreach($cards as $card): ?>
+
+        <h3> Карточка: № <?=$card['card_id']?> </h3>
+
+        <h6> Вопрос:</h6>
+        <p> <?=$card['card_question']?> </p>
+
+        <p> <h6> Ответ:</h6> </p>
+        <p> <?=$card['card_answer']?> </p>
+
+        <br>
+        <br>
+
+        <form method="POST">
+            <button onclick='return confirm("Вы уверены, что хотите убрать метку?")' type="submit" name="romove_mark_for_card_id" value="<?=$card['card_id']?>"> УБРАТЬ МЕТКУ </button>
+        </form>
+
+        <br>
+
+        <form method="POST">
+            <button onclick='return confirm("Вы уверены, что хотите удалить вопрос?")' type="submit" name="remove_card_id" value="<?=$card['card_id']?>"> УДАЛИТЬ </button>
+        </form>
+
+        <br />
+        <br />
+        <br />
+        <hr />
+        <br />
+        <br />
+
+    <?php endforeach; ?>
 
 
-  <h3> Карточка: № <?=$card['card_id']?> </h3> 
+<?else:?>
 
-  <h6> Вопрос:</h6>
-  <p> <?=$card['card_question']?> </p>
-  <p> <h6> Ответ:</h6> </p>
-  <p> <?=$card['card_answer']?> </p>
+    <h6> Нет отмеченных карточек</h6>
 
-
-  <form method="POST">
-    <button onclick='return confirm("Вы уверены, что хотите удалить вопрос?")' type="submit" name="remove_card_id" value="<?=$card[card_id]?>"> УДАЛИТЬ </button>
-  </form>
-
-  <br />
-  <br />
-  <br />
-  <hr />
-  <br />
-  <br />
-
-<?php endforeach; ?>
+<?endif;?>
 
     
 </body>

@@ -13,23 +13,25 @@
 	<h2>Cards</h2>
 
 	<hr>
-	
-	<?foreach($decks as $deck):?>
-	
-		<a href="/?page=card&deck_id=<?=$deck['deck_id']?>">
-			<h3>
-				<?=$deck['deck_title']?>
-			</h3>
-		</a>
-		
-	
-	<?endforeach;?>
+
+    <a href="/"><h3>Главная</h3></a>
+    <a href="/?page=adddeck"><h3>Новая колода</h3></a>
+    <a href="/?page=addcard"><h3>Новая карточка</h3></a>
 	
 	<br>
 	<hr>
-	
-	<a href="/?page=adddeck"><h3>Новая колода</h3></h1>
-	<a href="/?page=addcard"><h3>Новая карточка</h3></h1>
+
+    <?foreach($decks as $deck):?>
+
+        <a href="/?page=card&deck_id=<?=$deck['deck_id']?>">
+            <h3>
+                <?=$deck['deck_title']?>
+            </h3>
+        </a>
+
+    <?endforeach;?>
+
+
 
 </div>
                 

@@ -19,23 +19,47 @@ class C_Mark extends Base
         	
             M_Mark::Instance()->Add($_POST['add_mark_card_id'], '1');
 
-        	die('Карточка помечена');
+            header("Location: /?page=mark");
         }
+
+
+
+        if($_POST['romove_mark_for_card_id']){
+
+            M_Mark::Instance()->Remove($_POST['romove_mark_for_card_id'], '1');
+
+            header("Location: /?page=mark");
+        }
+
+
 
 
 		$marks = M_Mark::Instance()->All('1');
 
 
-        foreach($marks as $mark){
+        if($marks != FALSE){
 
-            $this->cards[] = M_Card::Instance()->ById($mark['card_id']);
+            foreach($marks as $mark){
+
+                $this->cards[] = M_Card::Instance()->ById($mark['card_id']);
+            }
+
+        } else {
+
+            $this->cards_null = TRUE;
         }
+
+
+
+
+
+
 
     }
 
     public function OnOutput()
     {
-        $page = $this->Template('v_mark.php', ['cards' => $this->cards]);
+        $page = $this->Template('v_mark.php', ['cards' => $this->cards, 'cards_null' => $this->cards_null]);
 		
 		echo $page;
     }

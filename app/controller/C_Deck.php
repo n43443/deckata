@@ -22,4 +22,5 @@ class C_Deck extends Base
 		
 		echo $page;
     }
+
 }

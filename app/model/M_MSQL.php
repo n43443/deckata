@@ -61,7 +61,7 @@ class M_MSQL{
     {
 
 
-    	//echo $sql;
+    	//echo $sql; echo '<br>';
 
         // Получение резултата БД
         $query = mysqli_query($this->db_connect, $sql);
@@ -175,7 +175,7 @@ class M_MSQL{
 	//
 	public function Delete($sql){
 
-		// echo $sql;
+		//echo $sql;
 		
 		// Выполнение SQL запроса
 		mysqli_query($this->db_connect, $sql);

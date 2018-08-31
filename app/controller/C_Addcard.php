@@ -24,7 +24,7 @@ class C_Addcard extends Base
 
 			M_Deckcard::Instance()->Add($_POST['deck_id'], $card_id);
 
-			header("Location: /");
+			header("Location: /?page=card&deck_id=$_POST[deck_id]");
 		}
     }
 
