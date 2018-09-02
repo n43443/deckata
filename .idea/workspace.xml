@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4db1b57-e198-4ab3-8499-cb286754eaed" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/C_Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/C_Response.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controller/C_Test.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/C_Test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/model/M_Level.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/M_Level.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/model/M_Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/M_Response.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,12 +33,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="9" />
-          <entry key="php" value="4758" />
+          <entry key="php" value="5211" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="4758" />
+          <entry key="PHP" value="5211" />
           <entry key="PLAIN_TEXT" value="9" />
         </counts>
       </usages-collector>
@@ -69,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/app/controller/C_Test.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+              <caret line="95" column="28" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
               <folding>
                 <element signature="e#34#55#0#PHP" expanded="true" />
               </folding>
@@ -196,8 +192,8 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="139" />
-    <option name="y" value="78" />
+    <option name="x" value="203" />
+    <option name="y" value="46" />
     <option name="width" value="1660" />
     <option name="height" value="957" />
   </component>
@@ -281,12 +277,12 @@
       <option name="presentableId" value="Default" />
       <updated>1535731297708</updated>
       <workItem from="1535731299941" duration="18092000" />
-      <workItem from="1535886921589" duration="8134000" />
+      <workItem from="1535886921589" duration="10030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26226000" />
+    <option name="totallyTimeSpent" value="28122000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="139" y="78" width="1660" height="957" extended-state="0" />
@@ -459,7 +455,7 @@
     <entry file="file://$PROJECT_DIR$/app/controller/C_Test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+          <caret line="95" column="28" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
           <folding>
             <element signature="e#34#55#0#PHP" expanded="true" />
           </folding>

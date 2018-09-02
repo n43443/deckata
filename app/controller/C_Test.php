@@ -40,29 +40,50 @@ class C_Test extends Base
 
                     $response = M_Response::Instance()->ByCardId($deckcard['card_id'], '1');
 
-                    // Если есть для карточек ответы
+
+                    if (!$response) {
+                        $response['level_id'] = '1';
+                    }
 
 
-                        if ($response) {
-
-                            //die();
-
-                            $level_row = M_Level::Instance()->ByLevel($deckcard['card_id']);
 
 
-                            $time = $response['response_date'] + $level_row['level_pause'];
 
 
-                            if (time() < $time) {
-                                $map_card[$deckcard['card_id']] = $response['level_id'];
-                            }
+                    $level = M_Level::Instance()->ByLevel($deckcard['card_id']);
+                    $time = $response['response_date'] + $level['level_pause'];
 
 
-                        } else {
 
-                            $map_card[] = $deckcard['card_id'];
 
+
+
+
+                    // Время после которого можно показывать карточку
+                    $time = $time;
+
+                    // Уровень карточки
+                    $level = $response['level_id'];
+
+
+                    // Идентификатор карточки
+                    $card = $deckcard['card_id'];
+
+
+
+
+
+
+
+
+
+                        if (time() > $time) {
+
+                            $map_card[] = $card;
                         }
+
+
+
 
                 }
             }
@@ -72,11 +93,13 @@ class C_Test extends Base
 
 
 
+        var_dump($map_card);
 
 
             shuffle($map_card);
 
             $card_id = $map_card['0'];
+
 
 
 
