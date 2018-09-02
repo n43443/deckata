@@ -16,28 +16,36 @@ class C_Test extends Base
 
 
 
-        if($_GET['card_id']) {
 
-            $card_id = $_GET['card_id'];
-
-        } else {
+        // Все колоды
+        $deck_rows = M_Deck::Instance()->ByUserId('1');
 
 
 
-            $deck_rows = M_Deck::Instance()->ByUserId('1');
 
-            foreach ($deck_rows as $deck) {
-
-                $deckcard_rows = M_Deckcard::Instance()->ByDeck($deck['deck_id']);
-
-                if ($deckcard_rows != FALSE) {
-
-                    foreach ($deckcard_rows as $deckcard) {
+        // Получить все карточки по массиву колод
+        foreach ($deck_rows as $deck) {
 
 
-                        $response = M_Response::Instance()->ByCardId($deckcard['card_id'], '1');
+            // Получить все индификторы карточек
+            $deckcard_rows = M_Deckcard::Instance()->ByDeck($deck['deck_id']);
 
-                        if ($response != FALSE) {
+
+            // Узнать данные оветов для карточек
+
+            if($deckcard_rows){
+
+                foreach ($deckcard_rows as $deckcard) {
+
+
+                    $response = M_Response::Instance()->ByCardId($deckcard['card_id'], '1');
+
+                    // Если есть для карточек ответы
+
+
+                        if ($response) {
+
+                            //die();
 
                             $level_row = M_Level::Instance()->ByLevel($deckcard['card_id']);
 
@@ -45,25 +53,31 @@ class C_Test extends Base
                             $time = $response['response_date'] + $level_row['level_pause'];
 
 
-                            if (time() > $time) {
+                            if (time() < $time) {
                                 $map_card[$deckcard['card_id']] = $response['level_id'];
                             }
+
 
                         } else {
 
                             $map_card[] = $deckcard['card_id'];
 
                         }
-                    }
+
                 }
             }
+        }
+
+
+
+
+
 
 
             shuffle($map_card);
 
             $card_id = $map_card['0'];
 
-        }
 
 
 
@@ -79,6 +93,7 @@ class C_Test extends Base
             header("Location: /");
 
         }
+
 
 
     }

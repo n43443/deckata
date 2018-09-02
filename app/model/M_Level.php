@@ -39,5 +39,26 @@ class M_Level
 
 
 
+    /*
+     * Получить следующий уровень
+     */
+
+    public function getNextLevel($level_id){
+
+        $level_row = M_MSQL::Instance()->SelectRow("SELECT * FROM `level` WHERE `level_id` = '$level_id'");
+
+        return $level_row['level_next'];
+    }
+
+    /*
+     * Получить уровень аварии
+     */
+
+    public function getCrashLevel($level_id){
+        $level_row = M_MSQL::Instance()->SelectRow("SELECT * FROM `level` WHERE `level_id` = '$level_id'");
+
+        return $level_row['level_crash'];
+    }
+
 
 }

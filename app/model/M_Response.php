@@ -35,7 +35,7 @@ class M_Response
 	
     public function ByCardId($card_id, $user_id){
 
-        return M_MSQL::Instance()->SelectRow("SELECT * FROM `response` WHERE `card_id` = $card_id && `user_id` = $user_id ORDER BY `level_id` DESC LIMIT 1");
+        return M_MSQL::Instance()->SelectRow("SELECT * FROM `response` WHERE `card_id` = $card_id && `user_id` = $user_id ORDER BY `response_id` DESC LIMIT 1");
     }
 
 
@@ -47,9 +47,42 @@ class M_Response
     }
 
 
-    public function LastFail($card_id, $user_id){
+    public function getLevelFail($card_id, $user_id){
 
-        return M_MSQL::Instance()->SelectRow("SELECT * FROM `response` WHERE `card_id` = $card_id && `user_id` = $user_id && `response_result` = '0'  ORDER BY `level_id` DESC LIMIT 1");
+        $response = M_MSQL::Instance()->SelectRow("SELECT * FROM `response` WHERE `card_id` = $card_id && `user_id` = $user_id && `response_result` = '0'  ORDER BY `level_id` DESC LIMIT 1");
+
+        if($response){
+
+            $response1 = M_MSQL::Instance()->SelectRow("SELECT * FROM `response` WHERE `response_id` < '$response[response_id]' && `card_id` = $card_id && `user_id` = $user_id && `response_result` = '1'  ORDER BY `level_id` DESC LIMIT 1");
+
+            return $response1['level_id'];
+        } else {
+
+            return '1';
+        }
+
+
+
     }
+
+
+    /*
+     * Получить уровень для карточки
+     */
+
+    public function getLevel($card_id, $user_id){
+
+        $response = M_MSQL::Instance()->SelectRow("SELECT * FROM `response` WHERE `card_id` = $card_id && `user_id` = $user_id ORDER BY `response_id` DESC LIMIT 1");
+
+        if($response == FALSE) {
+
+            $response['level_id'] = '1';
+        }
+
+        return $response['level_id'];
+    }
+
+
+
 
 }
