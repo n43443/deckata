@@ -17,74 +17,23 @@ class C_Test extends Base
 
 
 
-        // Все колоды
-        $deck_rows = M_Deck::Instance()->ByUserId('1');
+        // Все колоды пользователая
+         $deck_user_rows = M_Deck::Instance()->ByUserId('1');
 
 
-
-
-        // Получить все карточки по массиву колод
-        foreach ($deck_rows as $deck) {
-
+        // Получить все индификаторы карточек по массиву колод
+        foreach ($deck_user_rows as $deck_user_row) {
 
             // Получить все индификторы карточек
-            $deckcard_rows = M_Deckcard::Instance()->ByDeck($deck['deck_id']);
+            $deckcard_rows_by_deck_id = M_Deckcard::Instance()->ByDeck($deck_user_row['deck_id']);
 
 
-            // Узнать данные оветов для карточек
+            if($deckcard_rows_by_deck_id) {
 
-            if($deckcard_rows){
+                foreach ($deckcard_rows_by_deck_id as $deckcard_row_by_deck_id) {
 
-                foreach ($deckcard_rows as $deckcard) {
-
-
-                    $response = M_Response::Instance()->ByCardId($deckcard['card_id'], '1');
-
-
-                    if (!$response) {
-                        $response['level_id'] = '1';
-                    }
-
-
-
-
-
-
-                    $level = M_Level::Instance()->ByLevel($deckcard['card_id']);
-                    $time = $response['response_date'] + $level['level_pause'];
-
-
-
-
-
-
-
-                    // Время после которого можно показывать карточку
-                    $time = $time;
-
-                    // Уровень карточки
-                    $level = $response['level_id'];
-
-
-                    // Идентификатор карточки
-                    $card = $deckcard['card_id'];
-
-
-
-
-
-
-
-
-
-                        if (time() > $time) {
-
-                            $map_card[] = $card;
-                        }
-
-
-
-
+                    // Упорядочить все индификаторы в общий массив
+                    $all_card_id_for_user[] = $deckcard_row_by_deck_id['card_id'];
                 }
             }
         }
@@ -92,17 +41,43 @@ class C_Test extends Base
 
 
 
+        // Группируем массив карты карточек
+        foreach($all_card_id_for_user as $card_id){
 
-        var_dump($map_card);
-
-
-            shuffle($map_card);
-
-            $card_id = $map_card['0'];
+            $fact_level = M_Response::Instance()->getLevel($card_id,'1');
 
 
+            $response_date =  M_Response::Instance()->getDate($card_id,'1');
 
 
+            $level = M_Level::Instance()->ByLevel($fact_level);
+
+
+            $time = $level['level_pause'] + $response_date;
+
+
+
+            // Оставляем карточки которые надо повторять
+            if($time < time()){
+
+                $map_carts[] = $card_id;
+            }
+
+
+        }
+
+        if(empty($map_carts)){
+            
+            die("Нет карточек для повторения");
+        }
+
+
+
+        shuffle($map_carts);
+
+
+
+        $card_id = $map_carts[0];
 
 
 

@@ -84,5 +84,22 @@ class M_Response
 
 
 
+    /*
+     * Получить дату для карточки
+     */
+
+    public function getDate($card_id, $user_id){
+
+        $response = M_MSQL::Instance()->SelectRow("SELECT * FROM `response` WHERE `card_id` = $card_id && `user_id` = $user_id ORDER BY `response_id` DESC LIMIT 1");
+
+        if($response == FALSE) {
+
+            $response['response_date'] = '1';
+        }
+
+        return $response['response_date'];
+    }
+
+
 
 }
