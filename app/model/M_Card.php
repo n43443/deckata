@@ -48,9 +48,15 @@ class M_Card extends M_MSQL
      */
     public function Add($card_question, $card_answer){
 
+
+        $card_question = addslashes($card_question);
+        $card_answer = addslashes($card_answer);
+
         $time = time();
 
-        return M_MSQL::Instance()->Insert("INSERT INTO `card` SET `card_question` = '$card_question', `card_answer` = '$card_answer', `card_сreated_date` = $time");
+        $sql = "INSERT INTO `card` SET `card_question` = '$card_question', `card_answer` = '$card_answer', `card_сreated_date` = $time";
+
+        return M_MSQL::Instance()->Insert($sql);
     }
 
 

@@ -24,9 +24,9 @@
 
 
         <h6> Вопрос:</h6>
-        <p> <?=$card['card_question']?> </p>
+        <p> <?=\app\model\M_Helper::Instance()->htmlHandler($card['card_question'])?> </p>
         <p> <h6> Ответ:</h6> </p>
-        <p> <?=$card['card_answer']?> </p>
+        <p> <?=\app\model\M_Helper::Instance()->htmlHandler($card['card_answer'])?> </p>
 
 
         <form method="POST">

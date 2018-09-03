@@ -8,7 +8,7 @@ use app\model\M_Deckcard;
 use app\model\M_Level;
 use app\model\M_Response;
 
-class C_Test extends Base
+class C_Repiat extends Base
 {
     public function OnInput(){
 
@@ -57,18 +57,14 @@ class C_Test extends Base
 
 
 
-            // Оставляем карточки которые надо повторять
-            if($time < time()){
-
                 $map_carts[] = $card_id;
-            }
 
 
         }
 
         if(empty($map_carts)){
 
-            header("Location: /?page=repiat");
+            die("Нет карточек для повторения");
         }
 
 
@@ -89,12 +85,20 @@ class C_Test extends Base
 
 
 
+        if($this->card == FALSE){
+
+            header("Location: /");
+
+        }
+
+
+
     }
 
     public function OnOutput()
     {
 		
-        $page = $this->Template('v_test.php', ['card' => $this->card, 'count_repiat' => $this->count_repiat]);
+        $page = $this->Template('v_repiat.php', ['card' => $this->card, 'count_repiat' => $this->count_repiat]);
 		echo $page;
     }
 }

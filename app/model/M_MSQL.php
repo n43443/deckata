@@ -141,6 +141,8 @@ class M_MSQL{
 	{
 
 		 //echo "<br />$sql <br />";
+
+        //$sql = mysqli_real_escape_string($this->db_connect, $sql);
 		
 		// Выполнение SQL запроса
 		mysqli_query($this->db_connect, $sql);
