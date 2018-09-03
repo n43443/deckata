@@ -8,8 +8,21 @@
 </head>
 <body>
 
+<div onclick="toggle(hidden_content)">
+
+
 <div class="question"><?=$card['card_question']?></div>
-<div class="answer"><?=$card['card_answer']?></div>
+<div id="hidden_content" style="display: none;">
+    <hr>
+    <div class="answer"><?=$card['card_answer']?></div>
+</div>
+
+<script>
+    function toggle(el) {
+        el.style.display = '';
+    }
+</script>
+
 
 <div class="buttons_answers">
     <form action="/?page=response" method="post">
@@ -49,6 +62,7 @@
 
 </div>
 
-	
+
+</div>
 </body>
 </html>
