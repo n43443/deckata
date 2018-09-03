@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Загрузка файлов на сервер</title>
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <h2><p><b> Форма для загрузки файлов </b></p></h2>
