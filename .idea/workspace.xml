@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4db1b57-e198-4ab3-8499-cb286754eaed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/controller/C_Imglist.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controller/C_Upload.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/model/M_Image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/view/v_imglist.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/view/v_upload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/view/v_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/view/v_index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/upload_list.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/2.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -299,12 +292,12 @@
       <updated>1535731297708</updated>
       <workItem from="1535731299941" duration="18092000" />
       <workItem from="1535886921589" duration="10030000" />
-      <workItem from="1535947863802" duration="21250000" />
+      <workItem from="1535947863802" duration="21505000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49372000" />
+    <option name="totallyTimeSpent" value="49627000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />

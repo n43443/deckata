@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.3
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 31 2018 г., 23:55
--- Версия сервера: 5.7.20
--- Версия PHP: 7.2.0
+-- Время создания: Сен 03 2018 г., 14:49
+-- Версия сервера: 5.7.19
+-- Версия PHP: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,21 +40,10 @@ CREATE TABLE `card` (
 --
 
 INSERT INTO `card` (`card_id`, `card_question`, `card_answer`, `card_сreated_date`) VALUES
-(1, '1-ая карточка про PHP', 'Ответ на первую карточку', 1535713386),
-(2, '2-ая карточка про HTML', 'Ответ на вторую карточку', 1535713426),
-(3, '3-яя карточка про JavaScript', 'Ответ на третью карточку', 1535713453),
-(4, 'Book', 'Книга', 1535713495),
-(5, 'Dog', 'Собака', 1535713510),
-(6, 'Cat', 'Кошка', 1535713530),
-(7, 'Red', 'Красный', 1535713565),
-(8, 'Black', 'Черный', 1535713584),
-(9, 'White', 'Белый', 1535713613),
-(10, 'Never', 'Никогда', 1535713633),
-(11, 'Big', 'Большой', 1535713649),
-(12, '11111', '22222', 1535713727),
-(13, 'Первая сторона', 'Вторая сторона', 1535731490),
-(14, 'Первая сторона', 'Вторая сторона', 1535731509),
-(15, 'Первая сторона', 'Вторая сторона', 1535733490);
+(1, 'Что такое PHP?', 'Серверный язык веб-программирования', 1535966277),
+(2, 'Что такое HTML?', 'Язык гипертесктовой разметки', 1535966369),
+(3, 'White', 'Белый', 1535966443),
+(4, '<?php echo \'1\'; ?>\r\n\r\n<i>Просто курсив теги</i>\r\n[CODE]<i>Курсив теги в коде</i>[/CODE]', '<i>III</i>\r\n[IMG]https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png[/IMG]', 1535967792);
 
 -- --------------------------------------------------------
 
@@ -75,9 +64,7 @@ CREATE TABLE `deck` (
 INSERT INTO `deck` (`deck_id`, `deck_title`, `user_id`) VALUES
 (1, 'Веб-мастерская', 1),
 (2, 'Английский', 1),
-(3, 'Одна карточка', 1),
-(4, 'Без карточек', 1),
-(5, 'Новая', 1);
+(3, 'English', 1);
 
 -- --------------------------------------------------------
 
@@ -98,19 +85,28 @@ CREATE TABLE `deckcard` (
 INSERT INTO `deckcard` (`deckcard_id`, `deck_id`, `card_id`) VALUES
 (1, 1, 1),
 (2, 1, 2),
-(3, 1, 3),
-(4, 2, 4),
-(5, 2, 5),
-(6, 2, 6),
-(7, 2, 7),
-(8, 2, 8),
-(9, 2, 9),
-(10, 2, 10),
-(11, 2, 11),
-(12, 3, 12),
-(13, 5, 13),
-(14, 5, 14),
-(15, 5, 15);
+(3, 3, 3),
+(4, 1, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `image`
+--
+
+CREATE TABLE `image` (
+  `image_id` int(12) NOT NULL,
+  `image_title` varchar(255) NOT NULL,
+  `image_uploaded_date` int(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `image`
+--
+
+INSERT INTO `image` (`image_id`, `image_title`, `image_uploaded_date`) VALUES
+(1, '\'555\'./', 1535974037),
+(2, 'Вторая картинка!', 1535974095);
 
 -- --------------------------------------------------------
 
@@ -131,23 +127,23 @@ CREATE TABLE `level` (
 
 INSERT INTO `level` (`level_id`, `level_pause`, `level_next`, `level_crash`) VALUES
 (1, 0, 2, 1),
-(2, 20, 3, 1),
-(3, 120, 4, 1),
-(4, 600, 5, 1),
-(5, 3600, 6, 1),
-(6, 18000, 7, 1),
-(7, 86400, 8, 1),
-(8, 172800, 9, 100),
-(9, 345600, 10, 100),
-(10, 691200, 11, 100),
-(11, 1382400, 12, 100),
-(12, 2764800, 13, 100),
-(13, 5529600, 14, 100),
-(14, 5529600, 14, 100),
+(2, 5, 3, 1),
+(3, 10, 4, 1),
+(4, 15, 5, 1),
+(5, 20, 6, 1),
+(6, 25, 7, 1),
+(7, 30, 8, 1),
+(8, 35, 9, 100),
+(9, 40, 10, 100),
+(10, 45, 11, 100),
+(11, 50, 12, 100),
+(12, 55, 13, 100),
+(13, 60, 14, 100),
+(14, 60, 14, 100),
 (100, 0, 101, 1),
-(101, 600, 102, 1),
-(102, 3600, 103, 1),
-(103, 18000, 0, 1);
+(101, 10, 102, 1),
+(102, 20, 103, 1),
+(103, 25, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -160,14 +156,6 @@ CREATE TABLE `mark` (
   `card_id` int(16) NOT NULL,
   `user_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `mark`
---
-
-INSERT INTO `mark` (`mark_id`, `card_id`, `user_id`) VALUES
-(1, 1, 1),
-(2, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -189,9 +177,45 @@ CREATE TABLE `response` (
 --
 
 INSERT INTO `response` (`response_id`, `card_id`, `response_result`, `response_date`, `level_id`, `user_id`) VALUES
-(1, 4, 1, 10000, 10, 1),
-(2, 5, 1, 10000, 5, 1),
-(3, 6, 0, 1000, 3, 1);
+(1, 1, 0, 1535966459, 1, 1),
+(2, 3, 0, 1535966461, 1, 1),
+(3, 2, 1, 1535966468, 2, 1),
+(4, 3, 0, 1535966471, 1, 1),
+(5, 1, 1, 1535966491, 2, 1),
+(6, 3, 1, 1535966492, 2, 1),
+(7, 2, 1, 1535966494, 3, 1),
+(8, 2, 1, 1535966522, 4, 1),
+(9, 1, 1, 1535966524, 3, 1),
+(10, 3, 1, 1535966525, 3, 1),
+(11, 3, 1, 1535966558, 4, 1),
+(12, 2, 1, 1535966559, 5, 1),
+(13, 1, 1, 1535966559, 4, 1),
+(14, 1, 1, 1535966666, 5, 1),
+(15, 2, 1, 1535966668, 6, 1),
+(16, 3, 1, 1535966670, 5, 1),
+(17, 3, 0, 1535966713, 1, 1),
+(18, 1, 1, 1535966715, 6, 1),
+(19, 2, 1, 1535966716, 7, 1),
+(20, 1, 1, 1535966764, 7, 1),
+(21, 3, 1, 1535966765, 2, 1),
+(22, 2, 1, 1535966766, 8, 1),
+(23, 2, 0, 1535966805, 100, 1),
+(26, 2, 1, 1535966863, 101, 1),
+(27, 3, 1, 1535966876, 3, 1),
+(28, 1, 1, 1535966876, 8, 1),
+(29, 2, 1, 1535966892, 102, 1),
+(30, 3, 1, 1535966894, 4, 1),
+(31, 3, 1, 1535967384, 5, 1),
+(32, 2, 1, 1535967385, 103, 1),
+(33, 1, 1, 1535967386, 9, 1),
+(34, 1, 1, 1535967632, 10, 1),
+(35, 3, 1, 1535967633, 6, 1),
+(36, 2, 1, 1535967633, 8, 1),
+(37, 4, 1, 1535967916, 2, 1),
+(38, 2, 1, 1535967917, 9, 1),
+(39, 3, 1, 1535967918, 7, 1),
+(40, 1, 1, 1535967919, 11, 1),
+(41, 4, 1, 1535967939, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -235,6 +259,12 @@ ALTER TABLE `deckcard`
   ADD PRIMARY KEY (`deckcard_id`);
 
 --
+-- Индексы таблицы `image`
+--
+ALTER TABLE `image`
+  ADD PRIMARY KEY (`image_id`);
+
+--
 -- Индексы таблицы `level`
 --
 ALTER TABLE `level`
@@ -266,44 +296,42 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `card`
 --
 ALTER TABLE `card`
-  MODIFY `card_id` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
+  MODIFY `card_id` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT для таблицы `deck`
 --
 ALTER TABLE `deck`
-  MODIFY `deck_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `deck_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT для таблицы `deckcard`
 --
 ALTER TABLE `deckcard`
-  MODIFY `deckcard_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
+  MODIFY `deckcard_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT для таблицы `image`
+--
+ALTER TABLE `image`
+  MODIFY `image_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT для таблицы `level`
 --
 ALTER TABLE `level`
   MODIFY `level_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
-
 --
 -- AUTO_INCREMENT для таблицы `mark`
 --
 ALTER TABLE `mark`
-  MODIFY `mark_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `mark_id` int(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `response`
 --
 ALTER TABLE `response`
-  MODIFY `response_id` int(24) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `response_id` int(24) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
