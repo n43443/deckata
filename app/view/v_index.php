@@ -16,7 +16,11 @@
 	
 	<a href="/?page=test"><h2>Тестирование</h2></h1>
 	<a href="/?page=deck"><h2>Колоды</h2></h1>
+        <a href="/?page=imglist"><h2>Картинки</h2></h1>
+        <a href="/?page=upload"><h2>Загрузить</h2></h1>
 	<a href="/?page=mark"><h2>Дефектные</h2></h1>
+
+
 
 
 </div>
